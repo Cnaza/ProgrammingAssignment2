@@ -1,9 +1,10 @@
-##call
+##calling exemple:
 ## > source("cachematrix.R")            load R program
-## > a <- makeCacheMatrix()             create functions
-## > a$set(matrix(c(1,2,3,4), 2, 2))    set any square invertible matrix
-## > cacheSolve(a)                      get inverse (new or in cash)
+## > m <- makeCacheMatrix()             create functions
+## > m$set(matrix(c(1,2,3,4), 2, 2))    set any square invertible matrix
+## > cacheSolve(m)                      get inverse (new or in cash)
 
+## set and get cache matrix
 makeCacheMatrix <- function(x = matrix()) {
     mtxCache <- NULL
     set <- function(y) {
@@ -11,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
         mtxCache <<- NULL
     }
     get <- function() x
-    setmatrix <- function(a) mtxCache <<- a
+    setmatrix <- function(m) mtxCache <<- m
     getmatrix <- function() mtxCache
     
     list(set = set, get = get,
