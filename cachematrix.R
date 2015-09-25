@@ -1,8 +1,12 @@
+## Put comments here that give an overall description of what your
+## functions do
+
 ##calling exemple:
 ## > source("cachematrix.R")            load R program
 ## > m <- makeCacheMatrix()             create functions
 ## > m$set(matrix(c(1,2,3,4), 2, 2))    set any square invertible matrix
-## > cacheSolve(m)                      get inverse (new or in cash)
+## > cacheSolve(m)                      get inverse (if new save in cash else get in cash)
+
 
 ## set and get cache matrix
 makeCacheMatrix <- function(x = matrix()) {
@@ -21,18 +25,18 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Return Inverse matrix
-
 cacheSolve <- function(x, ...) {
     mt <- x$getmatrix()
-    ##cash
+    ##get in cash
     if(!is.null(mt)) {
         return(mt)
     }else{
     #new
-    data <- x$get()
-    mt <- solve(data)
-    #set matrix to inverse to cash
-    x$setmatrix(mt)
-    mt
+        data <- x$get()
+        mt <- solve(data)
+        #set matrix to inverse
+         #cash inverse
+        x$setmatrix(mt)
+        return(mt)
 }
 }
