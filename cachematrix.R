@@ -5,8 +5,8 @@
 ## > source("cachematrix.R")            load R program
 ## > m <- makeCacheMatrix()             create functions
 ## > m$set(matrix(c(1,2,3,4), 2, 2))    set any square invertible matrix
-## > cacheSolve(m)                      get inverse (if new save in cash else get in cash)
-
+## > cacheSolve(m)                      get inverse (new matrix)
+## > cacheSolve(m)                      get in cash (inverse exists)
 
 ## set and get cache matrix
 makeCacheMatrix <- function(x = matrix()) {
